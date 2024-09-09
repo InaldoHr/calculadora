@@ -50,35 +50,25 @@ class _CalculadoraState extends State<Calculadora> {
 //função para atualizar o resultado junto com o botão
   void atualizarResultado(String texto) {
     setState(() {
-      // verificar se existe + - / e X repetidos, se sim, não deixar escrever
-
-
-
       if (resultado == '0') {
         resultado = '';
-
-        if (resultado.contains('+') || resultado.contains('-') || resultado.contains('x') || resultado.contains('/')) {
-          int contador = 1;
-        }
-          
-        
-
-        resultado += texto;
-       
+        resultado += texto;  
       } else {
       resultado += texto;
       }
     });
   }
  
-  //apagar
- 
+  //apagar tudo
   void apagar() {
     setState(() {
       resultado = '0';
     });
   }
- 
+
+
+
+  // Apagar o ultimo digito
   void apagarUltimo() {
     setState(() {
       if (resultado.length == 1) {
@@ -90,8 +80,7 @@ class _CalculadoraState extends State<Calculadora> {
     });
   }
  
- 
- 
+ // Função do calculo 
   void calculo() {
   setState(() {
     try{
@@ -139,6 +128,9 @@ class _CalculadoraState extends State<Calculadora> {
   @override
   Widget build(BuildContext context) {
     return Column(
+
+
+      // Display da Calculadora
       children: [
         Container(
           margin: const EdgeInsets.all(12),
@@ -166,6 +158,9 @@ class _CalculadoraState extends State<Calculadora> {
             ),
           ),
         ),
+
+
+        //Interfaces dos Botões 
         const Center(),
         Padding(
           padding: const EdgeInsets.all(5.0),
